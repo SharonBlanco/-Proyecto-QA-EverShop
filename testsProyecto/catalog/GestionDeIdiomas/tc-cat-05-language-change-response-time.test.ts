@@ -36,7 +36,7 @@ test.describe('ES-1 Gestión de idiomas de la tienda', () => {
       await page.getByText(/español/i).first().click();
     });
 
-    await test.step('Esperar a que la interfaz se muestre en el nuevo idioma y detener la medición', async () => {
+    await test.step('Esperar a que se carguen los resultados y detener la medición', async () => {
       // Resultado esperado: la interfaz se muestra en el idioma seleccionado en 5 segundos o menos
       await page.waitForLoadState('load');
       await expect(page.locator('html')).toHaveAttribute('lang', 'es');
