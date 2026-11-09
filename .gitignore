@@ -1,0 +1,9 @@
+# Ignorar todo
+/*
+
+# Excepto esto
+!.gitignore
+!testsProyecto/
+!playwright.config.js
+qatlas-reporter.cjs
+!package.json
