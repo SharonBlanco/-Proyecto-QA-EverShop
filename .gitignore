@@ -5,5 +5,5 @@
 !.gitignore
 !testsProyecto/
 !playwright.config.js
-qatlas-reporter.cjs
+!qatlas-reporter.cjs
 !package.json
