@@ -1,0 +1,30 @@
+﻿code;name;status;scope;entry_criteria;exit_criteria;resources;risks;start_date;end_date;suite_count;created_by_email;created_at;updated_at
+ES-PLAN-1;Plan de pruebas EverShop;activo;"Esta ronda cubre los tres módulos seleccionados de EverShop:
+- Autenticación y cuentas: REQ-AUTH-001 (registro), REQ-AUTH-002 (login cliente), REQ-AUTH-003 (login administrador), REQ-AUTH-004 (cierre de sesión).
+- Catálogo de productos: REQ-CAT-001 (gestión de idiomas), REQ-CAT-002 (creación, edición y eliminación de productos), REQ-CAT-003 (búsqueda y filtrado).
+- Compras y pedidos: REQ-ORD-001 (agregar al carrito), REQ-ORD-002 (gestión del carrito), REQ-ORD-003 (checkout, sin métodos de pago reales), REQ-ORD-004 (historial de pedidos).
+Fuera de alcance: pasarelas de pago reales, conexiones con API's, pruebas de carga en producción.
+Objetivos:
+-Verificar que cada requerimiento cumpla sus criterios de aceptación.
+- Ejecutar al menos 60 casos de prueba con valores válidos e inválidos.
+- Automatizar al menos el 90% de los casos.
+-Ejecutar pruebas de rendimiento, integración, funcionales y manuales.
+- Identificar y documentar los defectos encontrados, clasificados por módulo y severidad.";"EverShop instalado y ejecutándose localmente en los equipos del equipo, con base de datos PostgreSQL configurada.
+- Datos de prueba cargados: al menos un usuario cliente, un administrador, productos con y sin stock, y productos con variantes.
+- Herramientas de prueba, instaladas y configuradas.
+- Plan de pruebas aprobado por el equipo.";"- 100% de los casos de prueba ejecutados (manuales y automatizados).
+- Al menos el 90% de los casos automatizados y funcionando correctamente.
+- Todos los defectos encontrados registrados con la plantilla del curso y clasificados por módulo y severidad.
+- No quedan casos bloqueados sin justificación documentada.
+- Resultados consolidados para la elaboración del informe de pruebas.";"- Sharon Blanco Piedra: módulo de catálogo de productos (REQ-CAT-001 a REQ-CAT-003). Equipo: ASUS TUF Gaming F15, Zorin Linux.
+-Britany Romero Hernández: módulo de autenticación y cuentas (REQ-AUTH-001 a REQ-AUTH-004 ). Equipo Lenovo Legion 5 gen 10, Windows
+- Jose Armando Cordero Miranda: módulo de compras y pedidos (REQ-ORD-001 a REQ-ORD-004). Equipo: MacBook Pro, Chip M1 2020, macOS.";"- Riesgo: diferencias de entorno entre Linux, Windows y macOS que generen resultados distintos.
+  Contingencia: usar la misma versión de Node.js y PostgreSQL en los tres equipos, o ejecutar con Docker.
+- Riesgo: fallas en la instalación o configuración local de EverShop.
+  Contingencia: documentar los pasos de instalación y apoyarse en el equipo que lo tenga funcionando.
+- Riesgo: datos de prueba inconsistentes o borrados entre ejecuciones.
+  Contingencia: mantener un script o respaldo de la base de datos para restaurarla antes de cada ronda.
+- Riesgo: funcionalidades difíciles de automatizar.
+  Contingencia: dejarlas como pruebas manuales sin superar el 10% permitido.
+- Riesgo: atrasos en el cronograma por carga académica.
+  Contingencia: revisión semanal de avances y redistribución de casos entre integrantes.";2026-10-03;2026-10-14;11;shblanco@estudiantec.cr;2026-10-04T03:28:28.512020+00:00;2026-10-12T21:29:35.280183+00:00

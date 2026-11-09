@@ -1,0 +1,12 @@
+﻿code;name;description;case_count;created_by_email;created_at;updated_at
+ES-TS-12;Historial de pedidos del cliente;;4;joscordero@estudiantec.cr;2026-10-13T04:02:18.865799+00:00;2026-10-13T04:02:18.865799+00:00
+ES-TS-11;Proceso de checkout;;4;joscordero@estudiantec.cr;2026-10-13T04:01:31.384298+00:00;2026-10-13T04:01:31.384298+00:00
+ES-TS-10;Gestión del carrito de compras;;5;joscordero@estudiantec.cr;2026-10-13T04:00:43.868822+00:00;2026-10-13T04:00:43.868822+00:00
+ES-TS-9;Agregar productos al carrito de compras;;7;joscordero@estudiantec.cr;2026-10-13T03:59:19.998744+00:00;2026-10-13T03:59:19.998744+00:00
+ES-TS-8;Cierre de sesión;Cierre de sesion del cliente y administrador, bloqueo de acceso y boton Atras. Requisito ES-11. CP-AUTH-017 a CP-AUTH-020.;4;britanyrh@estudiantec.cr;2026-10-12T03:45:41.161180+00:00;2026-10-12T03:45:41.161180+00:00
+ES-TS-7;Inicio de sesión del administrador;Autenticacion administrativa, control de acceso por roles y expiracion de sesion. Requisito ES-10. CP-AUTH-012 a CP-AUTH-016.;5;britanyrh@estudiantec.cr;2026-10-12T03:45:39.094140+00:00;2026-10-12T03:45:39.094140+00:00
+ES-TS-6;Inicio de sesión del cliente;Autenticacion del cliente, credenciales invalidas y persistencia de sesion. Requisito ES-9. CP-AUTH-007 a CP-AUTH-011.;5;britanyrh@estudiantec.cr;2026-10-12T03:45:37.098021+00:00;2026-10-12T03:45:37.098021+00:00
+ES-TS-5;Registro de usuarios;Casos de registro de usuarios, validacion de correo y politicas de contrasena. Requisito ES-8. CP-AUTH-001 a CP-AUTH-006.;6;britanyrh@estudiantec.cr;2026-10-12T03:45:34.219931+00:00;2026-10-12T03:45:34.219931+00:00
+ES-TS-3;Búsqueda y filtrado de productos;Casos de prueba que verifican la búsqueda de productos con términos válidos e inválidos, el filtrado por categoría y rango de precio, y los tiempos de respuesta de la búsqueda y los filtros.;7;shblanco@estudiantec.cr;2026-10-11T22:43:53.877011+00:00;2026-10-11T22:43:53.877011+00:00
+ES-TS-2;Gestión de productos;Casos de prueba que verifican la creación, edición y eliminación de productos con valores válidos e inválidos, y la integración del panel de administración con la base de datos, la API y la tienda.;7;shblanco@estudiantec.cr;2026-10-11T22:42:52.521786+00:00;2026-10-11T22:42:52.521786+00:00
+ES-TS-1;Gestión de idiomas;Casos de prueba que verifican la visualización, el cambio y la configuración de idiomas de la tienda, el tiempo de respuesta del cambio de idioma y la integración de las traducciones con la interfaz.;6;shblanco@estudiantec.cr;2026-10-11T22:41:18.346698+00:00;2026-10-11T22:41:18.346698+00:00

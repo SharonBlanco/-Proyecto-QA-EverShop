@@ -1,0 +1,115 @@
+﻿code;title;format;role;i_want;so_that;preconditions;main_flow;acceptance_criteria;gherkin_given;gherkin_when;gherkin_then;parent_code;status;priority;owner_email;updated_by_email;created_at;updated_at
+ES-11;REQ-AUTH-004 Cierre de sesión del usuario;historia_usuario;Usuario autenticado (cliente o administrador);Quiero	Cerrar mi sesión de forma segura.;Proteger mi cuenta cuando deje de utilizar la plataforma;"●	El usuario ha iniciado sesión correctamente
+●	El usuario se encuentra en cualquier página de la plataforma";"1.	El cliente accede a la sección de perfil
+2.	El usuario localiza la opción de cerrar sesión.
+3.	El usuario selecciona la opción de cerrar sesión.
+4.	El sistema invalida la sesión activa.
+5.	El sistema redirige al usuario a la página de inicio de sesión correspondiente o la página principal.";"●	La opción de cerrar sesión está visible y accesible para el usuario autenticado.
+●	Al cerrar sesión, el sistema invalida la sesión activa del usuario.
+●	Tras cerrar sesión, el usuario es redirigido a la página de inicio de sesión.
+●	Después de cerrar sesión, el usuario no puede acceder a páginas protegidas sin autenticarse nuevamente.
+●	Si el usuario intenta retroceder en el navegador, no debe poder acceder a contenido protegido.";;;;ES-10;aprobado;media;britanyrh@estudiantec.cr;shblanco@estudiantec.cr;2026-10-12T00:53:47.968444+00:00;2026-10-12T21:54:36.792037+00:00
+ES-10;REQ-AUTH-003 Inicio de sesión del administrador;historia_usuario;Administrador de la tienda;Iniciar sesión en el panel de administración con mis credenciales.;Gestionar los productos, pedidos y configuraciones de la tienda.;"●	El usuario se encuentra en la página de inicio de sesión del panel de administración.
+●	Existe una cuenta de administrador registrada.
+●	Existe una cuenta de administrador registrada.";"1.	El usuario ingresa su correo electrónico.
+2.	El usuario ingresa su contraseña.
+3.	El usuario selecciona la opción de iniciar sesión.
+4.	El sistema valida las credenciales y el rol de administrador.
+5.	El sistema autentica al usuario.
+6.	El sistema redirige al administrador al panel de administración.";"●	El panel de administración muestra un formulario de inicio de sesión con los campos requeridos.
+●	El sistema valida que las credenciales correspondan a un usuario con rol de administrador.
+●	Si las credenciales son incorrectas, el sistema muestra un mensaje de error genérico.
+●	Tras un inicio de sesión exitoso, el administrador es redirigido al panel principal de administración
+●	La sesión del administrador debe expirar después de un período de inactividad.";;;;;aprobado;alta;britanyrh@estudiantec.cr;shblanco@estudiantec.cr;2026-10-12T00:32:26.850621+00:00;2026-10-12T21:54:34.376264+00:00
+ES-9;REQ-AUTH-002 Inicio de sesión del cliente;historia_usuario;Cliente registrado;Iniciar sesión en la tienda en línea con mis credenciales.;Acceder a mi cuenta, consultar mi historial y realizar compras.;"●	El usuario se encuentra en la página de inicio de sesión de la tienda.
+●	Existe una cuenta de cliente registrada y habilitada.
+●	El usuario conoce sus credenciales válidas.";"1.	El usuario ingresa su correo electrónico.
+2.	El usuario ingresa su contraseña.
+3.	El usuario selecciona la opción de iniciar sesión
+4.	El sistema valida las credenciales.
+5.	El sistema autentica al usuario
+6.	El sistema redirige al usuario a la página principal de la tienda.";"●	La página de la tienda muestra un formulario de inicio de sesión con los campos requeridos de correo y contraseña.
+●	El sistema valida que las credenciales correspondan a una cuenta existente.
+●	Si las credenciales son incorrectas, el sistema muestra un mensaje de error genérico.
+●	Tras iniciar sesión exitosamente, el usuario es redirigido a la página principal.
+●	La sesión del cliente permanece activa mientras navega por la tienda.";;;;ES-8;aprobado;alta;britanyrh@estudiantec.cr;shblanco@estudiantec.cr;2026-10-12T00:06:18.403442+00:00;2026-10-12T21:54:31.942593+00:00
+ES-8;REQ-AUTH-001 Registro de usuario;historia_usuario;Nuevo usuario;Registrarme en la tienda en línea proporcionando mi información personal básica.;Poder crear una cuenta y acceder a las funcionalidades de compra.;"El usuario se encuentra en la página de registro. 
+●	El usuario no posee una cuenta registrada previamente con el mismo correo electrónico.";"1.	El usuario accede al formulario de registro.
+2.	El usuario ingresa la información requerida.
+3.	El usuario envía el formulario.
+4.	El sistema valida la información proporcionada.
+5.	El sistema crea la cuenta del usuario.
+6.	El sistema muestra un mensaje de confirmación.";"El formulario de registro solicita el nombre, apellidos y las credenciales del usuario (correo y contraseña).
+El sistema valida que el correo electrónico no esté registrado previamente.
+El usuario recibe una confirmación tras un registro exitoso
+El usuario recibe una confirmación tras un registro exitoso
+El usuario puede iniciar sesión inmediatamente después del registro.";;;;;aprobado;alta;britanyrh@estudiantec.cr;shblanco@estudiantec.cr;2026-10-11T23:52:48.252100+00:00;2026-10-12T21:54:29.384321+00:00
+ES-7;REQ-ORD-004 Historial de pedidos del cliente;historia_usuario;Cliente registrado;Ver el historial de mis pedidos anteriores desde mi cuenta;Consultar el estado y los detalles de mis compras realizadas;"El cliente ha iniciado sesión correctamente
+El cliente ha realizado al menos un pedido anteriormente";"1.	El cliente accede a la sección de pedidos desde su cuenta
+2.	El sistema muestra una lista de los pedidos realizados
+3.	El cliente selecciona un pedido para ver su detalle
+4.	El sistema muestra la información completa del pedido seleccionado";"El cliente puede acceder a una sección de pedidos que muestre una lista de sus compras realizadas
+Cada pedido del listado muestra información general como número de orden, fecha, total y estado
+El cliente puede ver el detalle de un pedido con los productos comprados, cantidades y precios
+El sistema muestra el estado actualizado de cada pedido
+Si el cliente no tiene pedidos, el sistema muestra un mensaje indicándolo";;;;ES-6;aprobado;media;joscordero@estudiantec.cr;shblanco@estudiantec.cr;2026-10-10T02:03:25.038121+00:00;2026-10-12T21:54:26.975427+00:00
+ES-6;REQ-ORD-003 Proceso de checkout;historia_usuario;Cliente;Completar el proceso de checkout proporcionando mis datos de envío y pago;Finalizar mi pedido y confirmar la compra;"El cliente ha iniciado sesión o ingresa como invitado
+Existe al menos un producto en el carrito
+El cliente se encuentra en la página de checkout";"1.	El sistema solicita los datos de contacto y la dirección de envío
+2.	El cliente completa la información requerida
+3.	El sistema muestra un resumen del pedido con los totales
+4.	El cliente selecciona el método de pago y confirma la compra
+5.	El sistema procesa el pedido y muestra la confirmación";"El proceso de checkout solicita los datos esenciales del comprador como información de contacto (nombre y número telefónico) y dirección de envío (Provincia, cantón, distrito y dirección exacta)
+El sistema muestra un resumen del pedido con productos, cantidades, subtotal, costo de envío y total
+El sistema valida que todos los campos obligatorios estén completos antes de avanzar";;;;ES-4;aprobado;alta;joscordero@estudiantec.cr;shblanco@estudiantec.cr;2026-10-10T01:59:31.148905+00:00;2026-10-12T21:54:24.459516+00:00
+ES-5;REQ-ORD-002 Gestión del carrito de compras;historia_usuario;Cliente;Ver, modificar y eliminar los productos de mi carrito de compras.;Ajustar mi pedido antes de proceder al pago;"El cliente se encuentra navegando en la tienda
+Existe al menos un producto en el carrito";"1.	El cliente accede a la página del carrito
+2.	El sistema muestra los productos agregados con su información básica
+3.	El cliente modifica cantidades o elimina productos según lo desee
+4.	El sistema recalcula los totales automáticamente
+5.	El cliente decide continuar comprando o proceder al checkout";"El carrito muestra los productos agregados con su nombre, cantidad y precio
+El cliente puede modificar la cantidad de un producto desde el carrito
+El cliente puede eliminar productos individuales del carrito
+El sistema recalcula automáticamente el subtotal y el total al modificar el carrito
+Si el carrito está vacío, el sistema muestra un mensaje indicándolo";;;;ES-4;aprobado;alta;joscordero@estudiantec.cr;shblanco@estudiantec.cr;2026-10-08T03:52:49.691622+00:00;2026-10-12T21:54:20.392737+00:00
+ES-4;REQ-ORD-001 Agregar productos al carrito de compras;historia_usuario;Cliente;Agregar productos al carrito de compras desde la página del producto;Seleccionar los artículos que deseo comprar antes de proceder al pago;"El usuario ha iniciado sesión en la plataforma
+El cliente se encuentra navegando en la tienda
+El catálogo está disponible con productos en existencia";"1.	El cliente navega al detalle de un producto
+2.	El cliente selecciona las opciones del producto si corresponde (variante, cantidad)
+3.	El cliente selecciona la opción de agregar al carrito
+4.	El sistema agrega el producto al carrito
+5.	El sistema actualiza el indicador del carrito";"La página del producto incluye una opción visible para agregar al carrito
+El cliente puede seleccionar la cantidad deseada antes de agregar el producto
+Si el producto tiene variantes, el cliente debe seleccionar una opción antes de agregarlo
+El indicador del carrito se actualiza reflejando la cantidad de artículos agregados
+Si el producto no tiene stock disponible, la opción de agregar al carrito se deshabilita";;;;ES-9;aprobado;alta;joscordero@estudiantec.cr;shblanco@estudiantec.cr;2026-10-08T03:30:36.076516+00:00;2026-10-12T21:54:17.308595+00:00
+ES-3;REQ-CAT-003 Búsqueda y filtrado de productos;historia_usuario;Cliente;Buscar productos por nombre y filtrar los resultados por distintos criterios.;Encontrar rápidamente los artículos que me interesan.;"El cliente se encuentra navegando en la tienda.
+El catálogo contiene productos disponibles.";"El cliente ingresa un término de búsqueda en la barra de búsqueda.
+El sistema muestra los productos que coincidan con el término ingresado.
+El cliente aplica filtros adicionales según sus preferencias.
+El sistema actualiza los resultados según los filtros seleccionados.
+El cliente selecciona un producto de los resultados.";"La tienda incluye una barra de búsqueda accesible.
+Los resultados de búsqueda muestran productos que coinciden con el término ingresado.
+El cliente puede filtrar los resultados por criterios como categoría y rango de precio.
+Si no se encuentran resultados, el sistema muestra un mensaje indicándolo.
+Los resultados se actualizan dinámicamente sin necesidad de recargar toda la página.";;;;ES-2;aprobado;media;shblanco@estudiantec.cr;shblanco@estudiantec.cr;2026-10-03T21:42:49.848376+00:00;2026-10-12T21:54:14.892648+00:00
+ES-2;REQ-CAT-002 Creación, eliminación y edición de un producto;historia_usuario;Administrador de la tienda;Crear, editar y eliminar nuevos productos desde el panel de administración.;Ampliar y mantener actualizado el catálogo de la tienda con artículos disponibles para la venta.;"El administrador ha iniciado sesión en el panel de administración.
+El administrador se encuentra en la sección de gestión de productos.";"El administrador accede al formulario de creación de producto.
+El administrador completa o edita la información general del producto.
+El administrador carga, elimina o reemplaza las imágenes del producto.
+El administrador configura los atributos adicionales según corresponda.
+El administrador guarda el producto.
+El sistema valida la información y crea el producto.";"El formulario de creación incluye campos para la información esencial del producto como nombre, descripción, precio, variante, marca, inventario, categoría y estado.
+El sistema valida que los campos obligatorios estén completos antes de permitir guardar.
+El administrador puede asignar el producto a una categoría existente.
+El producto creado aparece correctamente en la tienda tras ser publicado.
+El sistema muestra un mensaje de confirmación tras la creación exitosa del producto.";;;;ES-10;aprobado;alta;shblanco@estudiantec.cr;shblanco@estudiantec.cr;2026-10-03T21:40:48.493371+00:00;2026-10-12T21:54:12.284240+00:00
+ES-1;REQ-CAT-001 Gestión de idiomas de la tienda;historia_usuario;Usuario autenticado (administrador o cliente);Gestionar y seleccionar los idiomas disponibles en la plataforma.;Configurar la disponibilidad de idiomas y navegar en un idioma preferido.;"El usuario ha iniciado sesión en la plataforma.
+La plataforma cuenta con soporte de internacionalización.";"El usuario accede a la configuración de idiomas.
+El sistema muestra la lista de idiomas disponibles.
+El usuario selecciona el idioma de preferencia.
+El sistema aplica los cambios de configuración.";"El usuario puede ver la lista de idiomas disponibles en la plataforma.
+El usuario puede seleccionar el idioma predeterminado de la tienda.
+El usuario puede cambiar el idioma de la tienda desde la interfaz.
+Al cambiar de idioma, los elementos de la interfaz y el contenido traducido se actualizan correctamente.
+El sistema muestra el idioma predeterminado cuando un contenido no tiene traducción disponible.";;;;;aprobado;media;shblanco@estudiantec.cr;shblanco@estudiantec.cr;2026-10-03T21:38:29.104239+00:00;2026-10-12T21:54:09.067258+00:00
