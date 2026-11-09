@@ -1,5 +1,5 @@
 'use strict';
-
+//
 /**
  * Reporter de Playwright para QAtlas — copia modificada del reporter oficial.
  *
