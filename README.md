@@ -3,6 +3,7 @@
 Pruebas de extremo a extremo (E2E, que recorren la aplicación como lo haría un usuario real) de la plataforma de comercio electrónico [EverShop](https://github.com/evershopcommerce/evershop), escritas con [Playwright](https://playwright.dev) e integradas con QAtlas, la herramienta de gestión de pruebas del curso.
 
 Forman parte del proyecto del curso Aseguramiento de la Calidad del Software (Grupo 50, Instituto Tecnológico de Costa Rica, Sede San Carlos, II Semestre 2026).
+Cabe recalcar que estas pruebas no son realizadas en base al diseño de la aplicación, los requerimientos fueron definidos por nuestro equipo y la revisión y aplicación de tests fueron basados en nuestros requerimientos, por indicaciones del enunciado del proyecto.
 
 ## Equipo y módulos
 
