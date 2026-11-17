@@ -11,8 +11,8 @@ const CLIENTE_STATE = 'playwright/.auth/cliente.json';
 
 export default defineConfig({
   testDir: './testsProyecto/',
-  fullyParallel: false,          // EverShop comparte una sola base de datos: mejor en orden
-  workers: 1,
+  fullyParallel: true,          
+  workers: 3,
   retries: 0,
   timeout: 30_000,
   reporter: [
