@@ -35,7 +35,7 @@ Las pruebas cubren registro e inicio de sesión, cierre de sesión, idiomas, pro
 ├── PlanDeCasos.pdf
 ├── ProyectoPlanificacion.pdf
 └── testsProyecto/
-    ├── README.md                         Guía detallada del módulo de catálogo
+    ├── README.md                         Guía detallada de los tres módulos
     ├── setup/
     │   └── auth.setup.ts                 Inicia sesión como administrador y cliente
     ├── auth/
@@ -67,6 +67,8 @@ Los archivos CSV son exportaciones de QAtlas: requisitos, casos, suites, planes 
 
 ## Casos automatizados
 
+El detalle de cada caso y los hallazgos de los tres módulos están en [testsProyecto/README.md](testsProyecto/README.md).
+
 Cada carpeta corresponde a una suite de QAtlas. La columna *Sesión* indica el `storageState` que usa la prueba; *propia* significa que el test inicia o cierra sesión por su cuenta.
 
 ### Autenticación y cuentas
@@ -88,7 +90,7 @@ Manuales: ES-TC-45 y ES-TC-46.
 | Gestión de productos (`GestionDeProductos/`) | REQ-CAT-002 | ES-TC-6, 7, 8, 11, 12, 20 | `tc-cat-06`, `07`, `08`, `11`, `12`, `20` | Administrador |
 | Búsqueda y filtrado (`BusquedaYFiltradoDeProductos/`) | REQ-CAT-003 | ES-TC-10, 13 a 18 | `tc-cat-10`, `tc-cat-13` a `tc-cat-18` | Cliente |
 
-Manuales: ES-TC-4 y ES-TC-9. El detalle de cada caso y los hallazgos están en [testsProyecto/README.md](testsProyecto/README.md).
+Manuales: ES-TC-4 y ES-TC-9.
 
 ### Compras y pedidos
 
