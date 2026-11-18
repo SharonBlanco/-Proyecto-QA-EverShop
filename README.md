@@ -1,50 +1,63 @@
-# Pruebas automatizadas de EverShop
+# Proyecto de pruebas automatizadas de EverShop
 
-Pruebas de extremo a extremo (E2E, que recorren la aplicación como lo haría un usuario real) de la plataforma de comercio electrónico [EverShop](https://github.com/evershopcommerce/evershop), escritas con [Playwright](https://playwright.dev) e integradas con QAtlas, la herramienta de gestión de pruebas del curso.
+Repositorio del proyecto **Aseguramiento de la Calidad del Software** (Grupo 50, Instituto Tecnológico de Costa Rica, Sede San Carlos, II semestre 2026).
 
-Forman parte del proyecto del curso Aseguramiento de la Calidad del Software (Grupo 50, Instituto Tecnológico de Costa Rica, Sede San Carlos, II Semestre 2026).
-Cabe recalcar que estas pruebas no son realizadas en base al diseño de la aplicación, los requerimientos fueron definidos por nuestro equipo y la revisión y aplicación de tests fueron basados en nuestros requerimientos, por indicaciones del enunciado del proyecto.
+Contiene pruebas E2E para EverShop escritas con [Playwright](https://playwright.dev) y reportes integrados con QAtlas. Los casos están organizados por módulo y corresponden al proyecto `ES` de QAtlas.
 
-## Equipo y módulos
+## Alcance
 
-| Módulo | Requisitos | Responsable |
-|---|---|---|
-| Autenticación y cuentas | REQ-AUTH-001 a REQ-AUTH-004 | Britany Alexandra Romero Hernández |
-| Catálogo de productos | REQ-CAT-001 a REQ-CAT-003 | Sharon Dayana Blanco Piedra |
-| Compras y pedidos | REQ-ORD-001 a REQ-ORD-004 | Jose Armando Cordero Miranda |
+| Módulo | Requerimientos | Responsable | Pruebas `.test.ts` |
+|---|---|---|---:|
+| Autenticación y cuentas | REQ-AUTH-001 a REQ-AUTH-004 | Britany Alexandra Romero Hernández | 18 |
+| Catálogo de productos | REQ-CAT-001 a REQ-CAT-003 | Sharon Dayana Blanco Piedra | 18 |
+| Compras y pedidos | REQ-ORD-001 a REQ-ORD-004 | Jose Armando Cordero Miranda | 18 |
+| **Total** | **11 requerimientos** | | **54** |
 
-Cada archivo de prueba automatiza un caso registrado en QAtlas (proyecto `ES`). Los casos, sus pasos, datos de prueba y resultados de cada ejecución se consultan en QAtlas.
+Las pruebas cubren registro e inicio de sesión, cierre de sesión, idiomas, productos, búsqueda y filtros, carrito, checkout e historial de pedidos. También incluyen verificaciones de rendimiento, integración con API/base de datos y validaciones funcionales.
 
-## Estructura
+> Los criterios esperados corresponden a los requerimientos del proyecto, no a comportamientos que EverShop implemente pero que no estén definidos en ellos.
 
-```
-evershop/
-├── playwright.config.ts        Configuración de Playwright y del reporter de QAtlas
-├── qatlas-reporter.cjs         Reporter que envía los resultados a QAtlas
-├── .env                        Credenciales y configuración local (no se sube al repositorio)
+## Archivos del proyecto
+
+```text
+├── README.md
+├── package.json
+├── playwright.config.ts
+├── qatlas-reporter.cjs
+├── casos_de_prueba.csv
+├── requisitos.csv
+├── planes_de_prueba.csv
+├── suites_de_prueba.csv
+├── PlanDeCasos.pdf
+├── ProyectoPlanificacion.pdf
 └── testsProyecto/
     ├── setup/
-    │   └── auth.setup.ts       Inicia sesión como administrador y como cliente y guarda las sesiones
-    └── <módulo>/
-        └── <requisito o funcionalidad>/
-            └── <id-del-caso>-<descripcion>.test.ts
+    │   └── auth.setup.ts
+    ├── auth/
+    ├── catalog/
+    └── orders/
 ```
 
-Cada integrante trabaja en la carpeta de su módulo y agrupa los casos en subcarpetas por requisito o funcionalidad. Por ejemplo: `testsProyecto/catalog/GestionDeIdiomas/tc-cat-01-list-available-languages.test.ts`.
+Cada caso usa el formato `tc-<modulo>-<numero>-<descripcion>.test.ts`. Por ejemplo:
 
-Las pruebas viven dentro del proyecto de EverShop porque algunas necesitan sus archivos o su servidor (por ejemplo, las que modifican traducciones y reinician la aplicación).
+- `tc-auth-12-admin-login-success.test.ts`
+- `tc-cat-03-set-default-language.test.ts`
+- `tc-ord-22-add-to-cart-valid-quantity.test.ts`
 
-## Requisitos
+Los archivos CSV exportan el inventario de requisitos, casos, suites y el plan de pruebas registrado en QAtlas. Los PDFs contienen la documentación de planificación y casos del proyecto.
 
-- EverShop instalado y funcionando (por defecto en `http://localhost:3000`).
-- PostgreSQL en ejecución, con la base de datos de EverShop.
+## Requisitos previos
+
+- EverShop 2.2.1 instalado y ejecutándose.
 - Node.js 20.12 o superior.
-- Una cuenta de administrador y una de cliente creadas en EverShop.
-- Un token de API de QAtlas con rol Tester o Test Manager en el proyecto `ES` (solo para subir resultados).
+- PostgreSQL configurado con la base de datos de EverShop.
+- Un usuario cliente y un usuario administrador creados.
+- Chromium para Playwright.
+- Un token de API de QAtlas con permisos de Tester o Test Manager, solo si se subirán resultados.
 
 ## Instalación
 
-Desde la carpeta de EverShop:
+Ejecutar desde la raíz de EverShop:
 
 ```bash
 npm install
@@ -53,78 +66,154 @@ npx playwright install chromium
 
 ## Configuración
 
-Las credenciales se leen del archivo `.env` de la raíz de EverShop, el mismo que usa la aplicación. Además de las variables propias de EverShop (`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`), las pruebas usan:
+Crear o actualizar el archivo `.env` en la raíz de EverShop. Las pruebas reutilizan las variables de EverShop para PostgreSQL y añaden las variables propias del proyecto:
 
-| Variable | Para qué sirve |
+| Variable | Uso |
 |---|---|
-| `BASE_URL` | Dirección de la tienda (por defecto `http://localhost:3000`) |
-| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | Cuenta de administrador de prueba |
-| `CLIENTE_EMAIL`, `CLIENTE_PASSWORD` | Cuenta de cliente de prueba |
-| `QATLAS_URL` | Dirección de la API de QAtlas, terminada en `/api` |
-| `QATLAS_TOKEN` | Token personal de la API de QAtlas |
+| `BASE_URL` | URL de EverShop. Por defecto se usa `http://localhost:3000` en las pruebas que incluyen un valor alternativo. |
+| `ADMIN_EMAIL` | Correo del administrador de pruebas. |
+| `ADMIN_PASSWORD` | Contraseña del administrador de pruebas. |
+| `CLIENTE_EMAIL` | Correo del cliente de pruebas. |
+| `CLIENTE_PASSWORD` | Contraseña del cliente de pruebas. |
+| `DB_HOST` | Host de PostgreSQL. |
+| `DB_PORT` | Puerto de PostgreSQL. |
+| `DB_USER` | Usuario de PostgreSQL. |
+| `DB_PASSWORD` | Contraseña de PostgreSQL. |
+| `DB_NAME` | Nombre de la base de datos. |
+| `QATLAS_URL` | URL base de la API de QAtlas, terminada en `/api`. |
+| `QATLAS_TOKEN` | Token personal de la API de QAtlas. |
+| `QATLAS_RUN_NAME` | Nombre opcional de la ejecución creada en QAtlas. |
+| `PRODUCTO_URL` | Ruta opcional usada por la prueba de integración de traducciones. |
+| `CAMISETA_URL_KEY` | URL key opcional usada por las pruebas de productos con variantes. |
 
-Cada integrante usa su propio `.env`. Contiene contraseñas y el token, así que nunca debe subirse al repositorio. Si una prueba necesita una variable adicional, se documenta en su propio archivo y en esta tabla.
+Ejemplo mínimo de formato:
 
-## Cómo ejecutar las pruebas
-
-EverShop debe estar corriendo (`npm run start`) antes de ejecutar las pruebas. Cada corrida inicia sesión primero (proyecto `setup`) y después ejecuta los tests.
-
-Probar sin subir resultados a QAtlas:
-
-```bash
-npx playwright test --reporter=list                        # todas
-npx playwright test <carpeta> --reporter=list              # un módulo o una funcionalidad
-npx playwright test <id-del-caso> --reporter=list          # un caso, por ejemplo tc-cat-03
+```dotenv
+BASE_URL=http://localhost:3000
+ADMIN_EMAIL=administrador@example.com
+ADMIN_PASSWORD=contraseña
+CLIENTE_EMAIL=cliente@example.com
+CLIENTE_PASSWORD=contraseña
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=contraseña
+DB_NAME=evershop
+QATLAS_URL=https://<host>/api
+QATLAS_TOKEN=<token>
 ```
 
-Ejecutar y subir los resultados a QAtlas, con un nombre equivalente al de la ejecución manual:
+No subir `.env`, contraseñas, tokens ni archivos de sesión (`playwright/.auth/*.json`) al repositorio.
+
+## Preparación de la aplicación
+
+1. Configurar EverShop y PostgreSQL.
+2. Crear una cuenta administradora y una cuenta cliente.
+3. Iniciar EverShop:
 
 ```bash
-QATLAS_RUN_NAME="Ejecución Automatizada <nombre>" npx playwright test <carpeta>
+npm run start
 ```
 
-Cada comando se escribe en una sola línea. Sin `--reporter=list`, los resultados se suben a QAtlas.
+4. Mantener EverShop en ejecución y abrir una segunda terminal para Playwright.
 
-Otras herramientas útiles:
+Al iniciar una ejecución, Playwright usa el proyecto `setup` para iniciar sesión como administrador y cliente y guardar sus sesiones en `playwright/.auth/`.
+
+## Ejecutar las pruebas
+
+Los reportes están configurados para mostrar los resultados en consola y enviar evidencias y resultados a QAtlas. Para ejecutar localmente sin enviar resultados, reemplazar el reporter:
 
 ```bash
-npx playwright test --ui                 # modo visual para depurar
-npx playwright show-report               # reporte HTML con capturas, video y trace
+npx playwright test --reporter=list
+npx playwright test testsProyecto/auth --reporter=list
+npx playwright test testsProyecto/catalog --reporter=list
+npx playwright test testsProyecto/orders --reporter=list
+npx playwright test tc-cat-03 --reporter=list
+```
+
+Para ejecutar una funcionalidad concreta:
+
+```bash
+npx playwright test testsProyecto/catalog/GestionDeIdiomas --reporter=list
+npx playwright test testsProyecto/orders/ProcesoDeCheckout --reporter=list
+```
+
+### Ejecutar y reportar en QAtlas
+
+```bash
+npx playwright test
+QATLAS_RUN_NAME="Ejecución Automatizada Catálogo" npx playwright test testsProyecto/catalog
+QATLAS_RUN_NAME="Ejecución Automatizada Compras" npx playwright test testsProyecto/orders
+```
+
+Sin `QATLAS_RUN_NAME`, el reporter genera un nombre para la ejecución automáticamente.
+
+### Herramientas adicionales
+
+```bash
+npx playwright test --ui
+npx playwright show-report
 npx playwright codegen --load-storage=playwright/.auth/admin.json http://localhost:3000/admin
 npx playwright codegen --load-storage=playwright/.auth/cliente.json http://localhost:3000
 ```
 
-`codegen` abre un navegador con la sesión ya iniciada y genera el código de lo que se hace en pantalla.
+`codegen` permite inspeccionar o grabar acciones con una sesión ya iniciada.
+
+## Configuración de Playwright
+
+El archivo `playwright.config.ts` define:
+
+- Directorio de pruebas: `testsProyecto/`
+- Navegador principal: Chromium
+- Ejecución paralela con máximo 3 workers
+- Reintentos: 0
+- Tiempo límite por prueba: 30 segundos
+- Capturas, video y trace solo al fallar
+- Proyecto `setup`, que crea las sesiones antes de ejecutar las pruebas
+- Proyecto `evershop`, que ejecuta los casos dependientes de las sesiones
+
+Las sesiones se generan en `playwright/.auth/admin.json` y `playwright/.auth/cliente.json`.
 
 ## Integración con QAtlas
 
-El archivo `qatlas-reporter.cjs` es una copia modificada del reporter oficial de QAtlas. Al terminar cada corrida:
+`qatlas-reporter.cjs` se encarga de:
 
-1. Crea una ejecución en QAtlas y registra el resultado de cada caso, paso por paso cuando el test usa `test.step`.
-2. Sube la evidencia (captura, video y trace) indicando el paso al que pertenece, para que se muestre en la ejecución.
-3. Cuando un test falla, busca si el caso ya tiene un defecto abierto. Si existe, vincula la ejecución a ese defecto y le agrega la captura, en lugar de crear un duplicado. Si no existe, crea uno nuevo con los pasos, el resultado esperado y el resultado obtenido.
-4. Marca la ejecución como completada.
+- Crear una ejecución en QAtlas.
+- Relacionar cada prueba con su caso mediante código (`ES-TC-*`) o anotación QAtlas.
+- Registrar el estado de cada caso y sus pasos.
+- Subir capturas, video y trace.
+- Evitar defectos duplicados: busca primero un defecto abierto por la misma causa.
+- Vincular ejecuciones nuevas al defecto existente o crear uno nuevo cuando sea necesario.
+- Marcar la ejecución como completada al finalizar.
 
-Las modificaciones respecto al reporter oficial son los puntos 2 (evidencia con número de paso), 3 (defectos sin duplicar) y 4 (cierre automático de la ejecución).
+## Convenciones de las pruebas
 
-Cuando dos casos fallan por la misma causa, cada uno puede quedar con su propio defecto. En ese caso, en QAtlas se marca uno como duplicado del otro y se anota la causa común.
+- El nombre del archivo es `<id>-<descripcion>.test.ts`.
+- El título incluye `@ES-TC-X` y el test registra la anotación `qatlas`.
+- Los pasos de Playwright siguen el orden y la acción de QAtlas.
+- Las precondiciones determinan la sesión usada:
+  - administrador: `storageState: 'playwright/.auth/admin.json'`
+  - cliente: `storageState: 'playwright/.auth/cliente.json'`
+  - sin sesión: no se configura `storageState`.
+- Las pruebas intentan restaurar datos, archivos y configuraciones modificadas.
+- Las rutas relativas usan `BASE_URL`; por ejemplo, `/admin/products`.
+- Las verificaciones deben fallar si EverShop no cumple el requisito del caso.
 
-## Convenciones
+## Datos y limpieza
 
-Para que todas las pruebas se integren igual con QAtlas:
+Las pruebas mantienen datos de referencia en varios niveles:
 
-- Nombre de archivo: `<id-del-caso>-<descripcion>.test.ts`, igual al ID de automatización del caso en QAtlas.
-- Título del test: `@ES-TC-X Título del caso`, más la anotación `test.info().annotations.push({ type: 'qatlas', description: 'ES-TC-X' })`.
-- Un `test.step` por cada paso del caso, en el mismo orden y con el texto de la acción. Al final de cada paso se verifica su resultado esperado.
-- Los datos de prueba son los definidos en QAtlas, incluidos los de la columna "Datos de prueba".
-- La sesión depende de la precondición del caso: `test.use({ storageState: 'playwright/.auth/admin.json' })` si dice administrador, `cliente.json` si dice cliente, y ninguna si el caso empieza sin sesión.
-- Los resultados esperados salen de los requisitos y de los casos, no del comportamiento actual de EverShop. Si la aplicación no cumple el requisito, el test debe fallar.
-- Cada test deja el sistema como lo encontró: si crea datos los borra, y si cambia una configuración la restaura (con `afterEach` o `afterAll`).
-- Los datos que la precondición exige y que no se están probando (por ejemplo, productos de referencia) pueden crearse por la API en un `beforeAll` y borrarse en un `afterAll`.
-- Las rutas se escriben cortas (`/admin/products`), sin la dirección completa, para que usen `BASE_URL`.
+- El setup inicia las sesiones administrativas y de cliente.
+- Las pruebas de catálogo pueden crear y eliminar productos.
+- Las pruebas de idiomas pueden modificar traducciones y restaurar la configuración.
+- Las pruebas de pedidos ayudan a crear productos o pedidos necesarios y usan la sesión del cliente.
+- Algunas verificaciones consultan directamente PostgreSQL o la API de EverShop.
 
-## Notas
+Antes de ejecutar pruebas destructivas o de integración, comprobar que `DB_*` apunta a la base de datos preparada para la prueba.
 
-- Algunas pruebas de integración reinician EverShop (detienen el proceso del puerto 3000 y lo vuelven a iniciar con `npm run start`). Para que puedan hacerlo, EverShop debe iniciarse desde la terminal de VS Code.
-- Si el inicio de sesión falla de forma intermitente justo después de prender EverShop, normalmente es porque el servidor todavía está cargando; basta con volver a ejecutar.
-- Las pruebas funcionales son de caja negra (los resultados esperados salen de los requisitos). Las de integración son de caja gris, porque además consultan la base de datos, la API o los archivos de la aplicación.
+## Notas conocidas
+
+- Las pruebas de integración que modifican traducciones pueden detener EverShop y reiniciarlo con `npm run start`. EverShop debe haberse iniciado desde la terminal que ejecuta las pruebas.
+- Si la sesión falla inmediatamente después de iniciar EverShop, esperar a que el servidor termine de cargar y volver a ejecutar la prueba.
+- EverShop no siempre usa las mismas denominaciones que los requerimientos: por ejemplo, el checkout puede usar `Address`, `Address 2` y `City` en lugar de cantón, distrito y dirección exacta.
+- Los rangos de respuesta, los selectores y los mensajes deben validarse en el entorno local si difieren de la primera ejecución registrada.
