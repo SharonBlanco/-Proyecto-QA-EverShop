@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
 
-// Cada caso inicia sin sesiÃ³n, aunque el proyecto tenga un setup global.
+// Cada caso inicia sin sesión, aunque el proyecto tenga un setup global.
 test.use({ storageState: { cookies: [], origins: [] } });
 
 const correoNuevo = () => `qa-reg-${randomUUID()}@example.com`;
@@ -23,15 +23,15 @@ async function enviarRegistro(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: /^sign up$/i }).click();
 }
 
-test('@ES-TC-39 Registro con correo electrÃ³nico duplicado', async ({ page }) => {
+test('@ES-TC-39 Registro con correo electrónico duplicado', async ({ page }) => {
   test.info().annotations.push({ type: 'qatlas', description: 'ES-TC-39' });
   // Debe existir una cuenta cliente con este correo en la base de datos de prueba.
   const emailExistente = process.env.CLIENTE_EMAIL;
   test.skip(!emailExistente, 'Configura CLIENTE_EMAIL con un cliente ya registrado.');
-  await test.step('Abrir el formulario de registro sin sesiÃ³n iniciada', async () => {
+  await test.step('Abrir el formulario de registro sin sesión iniciada', async () => {
     await abrirRegistro(page);
   });
-  await test.step('Introducir un correo electrÃ³nico ya registrado', async () => {
+  await test.step('Introducir un correo electrónico ya registrado', async () => {
     await llenarRegistro(page, emailExistente!, 'Qa123456!');
   });
   await test.step('Intentar registrar la cuenta y comprobar el rechazo', async () => {

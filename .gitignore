@@ -1,10 +1,12 @@
-# Ignorar todo
+# Ignorar todo (el repositorio vive dentro de la raíz de EverShop)
 /*
 
-# Excepto esto
+# Excepto los archivos del proyecto de pruebas
 !.gitignore
-!testsProyecto/
-!playwright.config.js
 !README.md
-!qatlas-reporter.cjs
 !package.json
+!playwright.config.ts
+!qatlas-reporter.cjs
+!testsProyecto/
+!*.csv
+!*.pdf

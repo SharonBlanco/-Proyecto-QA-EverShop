@@ -1,0 +1,33 @@
+﻿code;name;status;suite_code;created_by_email;started_at;completed_at;total_cases;passed_count;failed_count;blocked_count;skipped_count
+ES-RUN-41;Ejecucion Automatizada Registro de Usuarios - v3;completado;;britanyrh@estudiantec.cr;2026-11-17T23:57:35.589332+00:00;2026-11-17T23:57:37.631520+00:00;4;4;0;0;0
+ES-RUN-38;Ejecución Automatizada: Proceso de checkout (v2);completado;;joscordero@estudiantec.cr;2026-11-17T04:54:25.839034+00:00;2026-11-17T04:54:34.882746+00:00;4;3;1;0;0
+ES-RUN-37;Ejecución Automatizada: Agregar productos al carrito (v2);completado;;joscordero@estudiantec.cr;2026-11-17T04:51:58.089207+00:00;2026-11-17T04:52:06.816570+00:00;7;6;1;0;0
+ES-RUN-36;Ejecución Manual: Historial de pedidos del cliente;completado;;joscordero@estudiantec.cr;2026-11-17T02:23:38.157214+00:00;2026-11-17T02:32:09.914729+00:00;3;3;0;0;0
+ES-RUN-35;Ejecución Manual: Proceso de checkout;completado;ES-TS-11;joscordero@estudiantec.cr;2026-11-17T02:03:39.978308+00:00;2026-11-17T02:22:05.929310+00:00;4;3;1;0;0
+ES-RUN-34;Ejecución Manual Cierre de sesión;completado;ES-TS-8;britanyrh@estudiantec.cr;2026-11-17T01:37:58.243826+00:00;2026-11-17T01:54:18.171954+00:00;4;4;0;0;0
+ES-RUN-33;Ejecución Manuel Inicio de Sesion Administrador;completado;ES-TS-7;britanyrh@estudiantec.cr;2026-11-17T01:23:05.144892+00:00;2026-11-17T01:36:46.295265+00:00;5;5;0;0;0
+ES-RUN-32;Prueba Manual Inicio de sesión cliente;completado;ES-TS-6;britanyrh@estudiantec.cr;2026-11-17T01:02:28.665045+00:00;2026-11-17T01:22:14.994050+00:00;5;5;0;0;0
+ES-RUN-31;Ejecución Manual: Gestión del carrito de compras;completado;;joscordero@estudiantec.cr;2026-11-16T23:38:40.314197+00:00;2026-11-17T02:02:13.013321+00:00;4;4;0;0;0
+ES-RUN-30;Ejecución Manual: Agregar productos al carrito de compras;completado;ES-TS-9;joscordero@estudiantec.cr;2026-11-16T22:05:03.189728+00:00;2026-11-16T23:36:40.989111+00:00;7;6;1;0;0
+ES-RUN-29;Ejecución Manual: Cambio de estado en el admin y el historial del cliente;completado;;joscordero@estudiantec.cr;2026-11-16T07:17:35.200860+00:00;2026-11-16T07:35:40.998344+00:00;1;0;1;0;0
+ES-RUN-28;Ejecución Manual: Visualizar el contenido del carrito;completado;;joscordero@estudiantec.cr;2026-11-16T06:34:43.189862+00:00;2026-11-16T07:15:47.041946+00:00;1;1;0;0;0
+ES-RUN-27;Ejecución Automatizada Historial de Pedidos;completado;;joscordero@estudiantec.cr;2026-11-16T05:44:30.259156+00:00;2026-11-16T05:44:32.078417+00:00;3;3;0;0;0
+ES-RUN-25;Ejecución Automatizada Gestión del Carrito;completado;;joscordero@estudiantec.cr;2026-11-16T05:42:39.068360+00:00;2026-11-16T05:42:41.603280+00:00;4;4;0;0;0
+ES-RUN-24;Ejecucion Automatizada - Cierre de Sesion;completado;;britanyrh@estudiantec.cr;2026-11-16T05:33:58.216304+00:00;2026-11-16T05:33:59.986297+00:00;4;4;0;0;0
+ES-RUN-21;Ejecucion Automatizada - Inicio de Sesion Administrativa;completado;;britanyrh@estudiantec.cr;2026-11-16T04:36:49.164423+00:00;2026-11-16T04:36:57.216016+00:00;5;4;1;0;0
+ES-RUN-20;Ejecucion Automatizada - Inicio de Sesion;completado;;britanyrh@estudiantec.cr;2026-11-16T03:49:54.114599+00:00;2026-11-16T03:49:57.304234+00:00;5;5;0;0;0
+ES-RUN-18;Ejecución Automatizada Búsqueda/Filtrado Productos;completado;;shblanco@estudiantec.cr;2026-11-09T23:23:36.766758+00:00;2026-11-09T23:23:56.594762+00:00;7;5;2;0;0
+ES-RUN-17;Ejecucion Manual Registro de Usuarios;completado;ES-TS-5;britanyrh@estudiantec.cr;2026-11-09T03:36:46.574006+00:00;2026-11-16T00:12:51.585850+00:00;6;5;1;0;0
+ES-RUN-16;Ejecución Automatizada Gestión Productos;completado;;shblanco@estudiantec.cr;2026-11-09T02:30:26.384610+00:00;2026-11-09T02:30:47.503396+00:00;6;4;2;0;0
+ES-RUN-14;Ejecución Automatizada Gestión Idiomas;completado;;shblanco@estudiantec.cr;2026-11-08T03:22:24.187125+00:00;2026-11-08T03:23:02.963110+00:00;5;2;3;0;0
+ES-RUN-13;Playwright 2026-11-06 19:27;completado;;shblanco@estudiantec.cr;2026-11-06T19:27:43.183590+00:00;2026-11-06T19:27:54.365743+00:00;1;0;1;0;0
+ES-RUN-12;Playwright 2026-11-06 19:22;en_progreso;;shblanco@estudiantec.cr;2026-11-06T19:22:46.924294+00:00;;1;0;1;0;0
+ES-RUN-11;Playwright 2026-11-06 19:13;en_progreso;;shblanco@estudiantec.cr;2026-11-06T19:13:18.656655+00:00;;1;0;1;0;0
+ES-RUN-10;Playwright 2026-11-06 19:05;en_progreso;;shblanco@estudiantec.cr;2026-11-06T19:05:41.121963+00:00;;1;0;1;0;0
+ES-RUN-9;Playwright 2026-11-06 19:04;en_progreso;;shblanco@estudiantec.cr;2026-11-06T19:04:25.663324+00:00;;1;0;1;0;0
+ES-RUN-8;Playwright 2026-11-06 18:12;en_progreso;;shblanco@estudiantec.cr;2026-11-06T18:13:03.504351+00:00;;1;0;1;0;0
+ES-RUN-7;Playwright 2026-11-06 18:04;en_progreso;;shblanco@estudiantec.cr;2026-11-06T18:04:46.927670+00:00;;1;0;1;0;0
+ES-RUN-6;Playwright 2026-11-06 17:59;en_progreso;;shblanco@estudiantec.cr;2026-11-06T17:59:44.043556+00:00;;1;0;1;0;0
+ES-RUN-3;Ejecución Manual Búsqueda/Filtrado Productos;completado;ES-TS-3;shblanco@estudiantec.cr;2026-11-03T19:35:11.577318+00:00;2026-11-03T21:52:42.586162+00:00;7;5;1;1;0
+ES-RUN-2;Ejecución Manual  Gestión Productos;completado;ES-TS-2;shblanco@estudiantec.cr;2026-11-02T19:57:33.952390+00:00;2026-11-02T21:36:20.305646+00:00;7;5;2;0;0
+ES-RUN-1;Ejecución Manual Gestión Idiomas;completado;ES-TS-1;shblanco@estudiantec.cr;2026-11-01T00:10:01.643857+00:00;2026-11-02T18:55:42.027811+00:00;6;1;3;2;0

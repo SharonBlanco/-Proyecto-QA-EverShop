@@ -37,7 +37,15 @@ ES-TC-9 se ejecuta de forma manual.
 
 ### ES-3 Búsqueda y filtrado de productos (REQ-CAT-003)
 
-En desarrollo: ES-TC-10, ES-TC-13 a ES-TC-18.
+| Caso | Archivo | Sesión |
+|---|---|---|
+| ES-TC-10 Tiempo de respuesta de la búsqueda de productos | `tc-cat-10-search-response-time.test.ts` | Cliente |
+| ES-TC-13 Buscar producto por nombre existente | `tc-cat-13-search-existing-product.test.ts` | Cliente |
+| ES-TC-14 Búsqueda sin resultados | `tc-cat-14-search-no-results.test.ts` | Cliente |
+| ES-TC-15 Filtrar productos por categoría | `tc-cat-15-filter-by-category.test.ts` | Cliente |
+| ES-TC-16 Filtrar productos por rango de precio | `tc-cat-16-filter-by-price-range.test.ts` | Cliente |
+| ES-TC-17 Búsqueda con caracteres especiales | `tc-cat-17-search-special-characters.test.ts` | Cliente |
+| ES-TC-18 Tiempo de respuesta al aplicar filtros sobre una búsqueda | `tc-cat-18-filtered-search-response-time.test.ts` | Cliente |
 
 ## Estructura
 
@@ -49,6 +57,8 @@ evershop/
 └── testsProyecto/
     ├── setup/
     │   └── auth.setup.ts       Inicia sesión como administrador y como cliente y guarda las sesiones
+    ├── auth/                   Autenticación y cuentas (ver README principal)
+    ├── orders/                 Compras y pedidos (ver orders/README.md)
     └── catalog/
         ├── GestionDeIdiomas/
         ├── GestionDeProductos/
@@ -106,6 +116,7 @@ Ejecutar y subir los resultados a QAtlas, con un nombre de ejecución equivalent
 ```bash
 QATLAS_RUN_NAME="Ejecución Automatizada Gestión Idiomas" npx playwright test GestionDeIdiomas
 QATLAS_RUN_NAME="Ejecución Automatizada Gestión Productos" npx playwright test GestionDeProductos
+QATLAS_RUN_NAME="Ejecución Automatizada Búsqueda y Filtrado" npx playwright test BusquedaYFiltradoDeProductos
 ```
 
 Otras herramientas útiles:

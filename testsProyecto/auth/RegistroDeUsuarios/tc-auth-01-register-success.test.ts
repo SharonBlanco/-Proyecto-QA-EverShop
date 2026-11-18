@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
 
-// Cada caso inicia sin sesiÃƒÂ³n, aunque el proyecto tenga un setup global.
+// Cada caso inicia sin sesión, aunque el proyecto tenga un setup global.
 test.use({ storageState: { cookies: [], origins: [] } });
 
 const correoNuevo = () => `qa-reg-${randomUUID()}@example.com`;
@@ -47,23 +47,23 @@ async function enviarRegistro(page: import('@playwright/test').Page) {
 }
 
 async function comprobarCuentaCreada(page: import('@playwright/test').Page) {
-  // Tras el registro, EverShop inicia sesiÃƒÂ³n automÃƒÂ¡ticamente y redirige al inicio.
+  // Tras el registro, EverShop inicia sesión automáticamente y redirige al inicio.
   await expect(page).not.toHaveURL(/\/account\/register(?:[?#]|$)/, { timeout: 90000 });
   await page.goto('/account');
   await expect(page).not.toHaveURL(/\/account\/login(?:[?#]|$)/);
   await expect(page).toHaveURL(/\/account(?:[/?#]|$)/);
 }
 
-test('@ES-TC-21 Registro exitoso con datos vÃƒÂ¡lidos', async ({ page }) => {
+test('@ES-TC-21 Registro exitoso con datos válidos', async ({ page }) => {
   test.info().annotations.push({ type: 'qatlas', description: 'ES-TC-21' });
   const email = correoNuevo();
-  await test.step('Abrir el formulario de registro sin sesiÃƒÂ³n iniciada', async () => {
+  await test.step('Abrir el formulario de registro sin sesión iniciada', async () => {
     await abrirRegistro(page);
   });
-  await test.step('Ingresar nombre, correo nuevo y contraseÃƒÂ±a vÃƒÂ¡lida', async () => {
+  await test.step('Ingresar nombre, correo nuevo y contraseña válida', async () => {
     await llenarRegistro(page, email, 'Qa123456!');
   });
-  await test.step('Enviar el formulario y comprobar que se crea una sesiÃƒÂ³n de cliente', async () => {
+  await test.step('Enviar el formulario y comprobar que se crea una sesión de cliente', async () => {
     await enviarRegistro(page);
     await comprobarCuentaCreada(page);
   });

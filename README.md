@@ -13,6 +13,8 @@ Contiene pruebas E2E para EverShop escritas con [Playwright](https://playwright.
 | Compras y pedidos | REQ-ORD-001 a REQ-ORD-004 | Jose Armando Cordero Miranda | 18 |
 | **Total** | **11 requerimientos** | | **54** |
 
+En QAtlas hay 60 casos registrados (ES-TC-1 a ES-TC-60): 54 automatizados en este repositorio y 6 que se ejecutan de forma manual (ES-TC-4, ES-TC-9, ES-TC-29, ES-TC-44, ES-TC-45 y ES-TC-46).
+
 Las pruebas cubren registro e inicio de sesión, cierre de sesión, idiomas, productos, búsqueda y filtros, carrito, checkout e historial de pedidos. También incluyen verificaciones de rendimiento, integración con API/base de datos y validaciones funcionales.
 
 > Los criterios esperados corresponden a los requerimientos del proyecto, no a comportamientos que EverShop implemente pero que no estén definidos en ellos.
@@ -28,14 +30,31 @@ Las pruebas cubren registro e inicio de sesión, cierre de sesión, idiomas, pro
 ├── requisitos.csv
 ├── planes_de_prueba.csv
 ├── suites_de_prueba.csv
+├── ejecuciones.csv
+├── incidencias.csv
 ├── PlanDeCasos.pdf
 ├── ProyectoPlanificacion.pdf
 └── testsProyecto/
+    ├── README.md                         Guía detallada del módulo de catálogo
     ├── setup/
-    │   └── auth.setup.ts
+    │   └── auth.setup.ts                 Inicia sesión como administrador y cliente
     ├── auth/
+    │   ├── RegistroDeUsuarios/
+    │   ├── InicioSesionCliente/
+    │   ├── InicioSesionAdministrador/
+    │   └── CierreSesion/
     ├── catalog/
+    │   ├── GestionDeIdiomas/
+    │   ├── GestionDeProductos/
+    │   └── BusquedaYFiltradoDeProductos/
     └── orders/
+        ├── README.md                     Guía del módulo de compras y pedidos
+        ├── helpers/
+        │   └── pedidos.ts                Prepara productos y pedidos de referencia
+        ├── AgregarAlCarrito/
+        ├── GestionDelCarrito/
+        ├── ProcesoDeCheckout/
+        └── HistorialDePedidos/
 ```
 
 Cada caso usa el formato `tc-<modulo>-<numero>-<descripcion>.test.ts`. Por ejemplo:
@@ -44,7 +63,43 @@ Cada caso usa el formato `tc-<modulo>-<numero>-<descripcion>.test.ts`. Por ejemp
 - `tc-cat-03-set-default-language.test.ts`
 - `tc-ord-22-add-to-cart-valid-quantity.test.ts`
 
-Los archivos CSV exportan el inventario de requisitos, casos, suites y el plan de pruebas registrado en QAtlas. Los PDFs contienen la documentación de planificación y casos del proyecto.
+Los archivos CSV son exportaciones de QAtlas: requisitos, casos, suites, planes de prueba, ejecuciones e incidencias (defectos) registrados. Los PDFs contienen la documentación de planificación y casos del proyecto.
+
+## Casos automatizados
+
+Cada carpeta corresponde a una suite de QAtlas. La columna *Sesión* indica el `storageState` que usa la prueba; *propia* significa que el test inicia o cierra sesión por su cuenta.
+
+### Autenticación y cuentas
+
+| Suite | Requerimiento | Casos | Archivos | Sesión |
+|---|---|---|---|---|
+| Registro de usuarios (`RegistroDeUsuarios/`) | REQ-AUTH-001 | ES-TC-21, 39, 41, 43 | `tc-auth-01` a `tc-auth-04` | Sin sesión |
+| Inicio de sesión del cliente (`InicioSesionCliente/`) | REQ-AUTH-002 | ES-TC-47 a 51 | `tc-auth-07` a `tc-auth-11` | Propia |
+| Inicio de sesión del administrador (`InicioSesionAdministrador/`) | REQ-AUTH-003 | ES-TC-52 a 56 | `tc-auth-12` a `tc-auth-16` | Propia |
+| Cierre de sesión (`CierreSesion/`) | REQ-AUTH-004 | ES-TC-57 a 60 | `tc-auth-17` a `tc-auth-20` | Propia |
+
+Manuales: ES-TC-45 y ES-TC-46.
+
+### Catálogo de productos
+
+| Suite | Requerimiento | Casos | Archivos | Sesión |
+|---|---|---|---|---|
+| Gestión de idiomas (`GestionDeIdiomas/`) | REQ-CAT-001 | ES-TC-1, 2, 3, 5, 19 | `tc-cat-01`, `02`, `03`, `05`, `19` | Administrador / cliente |
+| Gestión de productos (`GestionDeProductos/`) | REQ-CAT-002 | ES-TC-6, 7, 8, 11, 12, 20 | `tc-cat-06`, `07`, `08`, `11`, `12`, `20` | Administrador |
+| Búsqueda y filtrado (`BusquedaYFiltradoDeProductos/`) | REQ-CAT-003 | ES-TC-10, 13 a 18 | `tc-cat-10`, `tc-cat-13` a `tc-cat-18` | Cliente |
+
+Manuales: ES-TC-4 y ES-TC-9. El detalle de cada caso y los hallazgos están en [testsProyecto/README.md](testsProyecto/README.md).
+
+### Compras y pedidos
+
+| Suite | Requerimiento | Casos | Archivos | Sesión |
+|---|---|---|---|---|
+| Agregar al carrito (`AgregarAlCarrito/`) | REQ-ORD-001 | ES-TC-22 a 28 | `tc-ord-22` a `tc-ord-28` | Cliente |
+| Gestión del carrito (`GestionDelCarrito/`) | REQ-ORD-002 | ES-TC-30 a 33 | `tc-ord-30` a `tc-ord-33` | Cliente |
+| Proceso de checkout (`ProcesoDeCheckout/`) | REQ-ORD-003 | ES-TC-34 a 37 | `tc-ord-34` a `tc-ord-37` | Cliente |
+| Historial de pedidos (`HistorialDePedidos/`) | REQ-ORD-004 | ES-TC-38, 40, 42 | `tc-ord-38`, `40`, `42` | Cliente / propia |
+
+Manuales: ES-TC-29 y ES-TC-44. Los datos de referencia y los comandos por suite están en [testsProyecto/orders/README.md](testsProyecto/orders/README.md).
 
 ## Requisitos previos
 
@@ -103,6 +158,8 @@ QATLAS_URL=https://<host>/api
 QATLAS_TOKEN=<token>
 ```
 
+El reporter también acepta variables opcionales como `QATLAS_PROJECT`, `QATLAS_RUN_ID`, `QATLAS_CREATE_BUG_ON_FAILURE`, `QATLAS_DEDUPE_BUGS`, `QATLAS_BUG_SEVERITY` y `QATLAS_BUG_PRIORITY`. En este proyecto, el código `ES` y la creación de defectos ya vienen definidos en `playwright.config.ts`.
+
 No subir `.env`, contraseñas, tokens ni archivos de sesión (`playwright/.auth/*.json`) al repositorio.
 
 ## Preparación de la aplicación
@@ -136,12 +193,14 @@ Para ejecutar una funcionalidad concreta:
 ```bash
 npx playwright test testsProyecto/catalog/GestionDeIdiomas --reporter=list
 npx playwright test testsProyecto/orders/ProcesoDeCheckout --reporter=list
+npx playwright test testsProyecto/auth/CierreSesion --reporter=list
 ```
 
 ### Ejecutar y reportar en QAtlas
 
 ```bash
 npx playwright test
+QATLAS_RUN_NAME="Ejecución Automatizada Autenticación" npx playwright test testsProyecto/auth
 QATLAS_RUN_NAME="Ejecución Automatizada Catálogo" npx playwright test testsProyecto/catalog
 QATLAS_RUN_NAME="Ejecución Automatizada Compras" npx playwright test testsProyecto/orders
 ```
@@ -164,8 +223,8 @@ npx playwright codegen --load-storage=playwright/.auth/cliente.json http://local
 El archivo `playwright.config.ts` define:
 
 - Directorio de pruebas: `testsProyecto/`
-- Navegador principal: Chromium
-- Ejecución paralela con máximo 3 workers
+- Navegador: Chromium con el perfil `Desktop Chrome`
+- Ejecución totalmente paralela con 3 workers
 - Reintentos: 0
 - Tiempo límite por prueba: 30 segundos
 - Capturas, video y trace solo al fallar

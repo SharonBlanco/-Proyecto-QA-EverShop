@@ -1,0 +1,49 @@
+﻿code;title;description;severity;status;created_by_email;created_at
+ES-BUG-20;Revisar el mensaje de confirmación.;No hay mensaje que avise que se inicio sesion de manera correcta;media;abierto;britanyrh@estudiantec.cr;2026-11-17T23:20:05.909252+00:00
+ES-BUG-19;Abrir el formulario de registro.;"Notas: Error: expect(locator).toContainText(expected) failed
+
+Locator: locator('[data-sonner-toast]')
+Expected pattern: /already|exist|registered|duplicate|taken|in use/i
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect ""toContainText"" with timeout 5000ms
+  - waiting for locator('[data-sonner-toast]')";media;abierto;britanyrh@estudiantec.cr;2026-11-17T23:19:01.303529+00:00
+ES-BUG-18;Completar nombre “Ana Mora”, teléfono “88887777”, provincia “San José”, cantón “San José”, distrito “Carmen” y dirección exacta “100 metros norte de la iglesia”;Notas: Evershop necesita mas datos que solo los que se indican en el caso de prueba para poder procesar el checkout;media;abierto;joscordero@estudiantec.cr;2026-11-17T02:12:46.561410+00:00
+ES-BUG-17;Completar nombre “Ana Mora”, teléfono “88887777”, provincia “San José”, cantón “San José”, distrito “Carmen” y dirección exacta “100 metros norte de la iglesia”;Notas: Evershop necesita mas datos que solo los que se indican en el caso de prueba para poder procesar el checkout;media;abierto;joscordero@estudiantec.cr;2026-11-17T02:11:01.340330+00:00
+ES-BUG-16;Seleccionar la talla M;Notas: En este caso Evershop cuenta con un sistema de tallas diferente, parece que es SM, XL y XXL. Entonces se tomo SM como M;media;abierto;joscordero@estudiantec.cr;2026-11-16T23:14:22.079209+00:00
+ES-BUG-15;El administrador abre el pedido en el panel de administración y cambia su estado;Notas: Para lograr cambiar el estado del pedido, se debe de aceptar el pago, para que al cliente de esta manera pueda ver en su pedido algún cambio;baja;abierto;joscordero@estudiantec.cr;2026-11-16T07:36:40.665038+00:00
+ES-BUG-14;Iniciar sesión como administrador.;"**Diagnóstico de ES-TC-56 — ES-RUN-21**
+
+La prueba falló durante la autenticación administrativa al utilizar una configuración temporal de sesión de 15 segundos.
+
+Anteriormente, el mismo caso había aprobado tanto individualmente como en una ejecución conjunta de cinco pruebas, verificándose la expiración de la sesión y la redirección al inicio de sesión.
+
+Se considera un fallo de automatización asociado probablemente al tiempo de sesión reducido y a la variabilidad de los tiempos de ejecución, no un defecto funcional confirmado de EverShop.
+
+Se conserva ES-RUN-21 como evidencia del proceso de pruebas y diagnóstico.";baja;cerrado;britanyrh@estudiantec.cr;2026-11-16T04:46:03.263419+00:00
+ES-BUG-13;Abrir la tienda en una sesión nueva;Algunos elementos no se traducen al español en el cambio de idioma.;media;abierto;shblanco@estudiantec.cr;2026-11-15T23:10:22.901424+00:00
+ES-BUG-12;ES-TC-2 — Cambiar idioma de la tienda desde la interfaz;"Defecto detectado por la prueba automatizada (Playwright) en la ejecución ES-RUN-14.
+
+Error reportado:
+Error: La tienda debería mostrar un control para cambiar el idioma
+
+expect(locator).toBeVisible() failed
+
+Locator: getByRole('combobox', { name: /language|idioma/i }).or(getByRole('button', { name: /language|idioma|english|español/i })).or(getByRole('link', { name: /english|español/i })).first()
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - La tienda debería mostrar un control para cambiar el idioma with timeout 5000ms
+  - waiting for getByRole('combobox', { name: /language|idioma/i }).or(getByRole('button', { name: /language|idioma|english|español/i })).or(getByRole('link', { name: /english|español/i })).first()";media;abierto;shblanco@estudiantec.cr;2026-11-08T03:22:48.520337+00:00
+ES-BUG-11;Seleccionar una categoría en los filtros e iniciar la medición del tiempo;El apartado de filtro está definido dentro de cada categoría, debería aparecer al ejecutar una búsqueda.;alta;abierto;shblanco@estudiantec.cr;2026-11-03T21:36:28.800122+00:00
+ES-BUG-10;Seleccionar una categoría en los filtros;En el apartado de filtro no se añadió la categoría.;media;abierto;shblanco@estudiantec.cr;2026-11-03T21:18:19.521726+00:00
+ES-BUG-9;Guardar el producto;No existe un campo para indicar la marca del producto.;media;abierto;shblanco@estudiantec.cr;2026-11-02T20:56:59.994776+00:00
+ES-BUG-8;Confirmar la eliminación;No se muestra ningún mensaje de confirmación en el apartado de eliminación de un producto.;media;abierto;shblanco@estudiantec.cr;2026-11-02T20:43:19.916436+00:00
+ES-BUG-7;Intentar guardar el producto;Se crearon campos de información de producto que no fueron establecidos en el plan de requerimientos.;alta;abierto;shblanco@estudiantec.cr;2026-11-02T20:30:01.689859+00:00
+ES-BUG-6;Abrir el selector de idioma en la tienda;No existe el botón de cambio de idioma en la interfaz del usuario.;alta;abierto;shblanco@estudiantec.cr;2026-11-02T19:00:35.136711+00:00
+ES-BUG-5;Abrir la tienda en una sesión nueva;Al cambiar idioma predeterminado no se guardan los cambios.;alta;abierto;shblanco@estudiantec.cr;2026-11-02T18:59:30.060559+00:00
+ES-BUG-4;Revisar el listado de idiomas;Se muestran 182 idiomas que no han sido solicitados en el plan de requerimientos.;media;abierto;shblanco@estudiantec.cr;2026-11-02T18:58:28.128507+00:00
